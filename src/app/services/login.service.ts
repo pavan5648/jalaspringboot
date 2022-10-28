@@ -11,6 +11,11 @@ export class LoginService {
 
   constructor(private http: HttpClient) {}
 
+
+  public addEmployee(employee:any){
+    return this.http.post(`${baseUrl}/emp`,employee)
+  }
+
   //current user: which is loggedin
   public getCurrentUser() {
     return this.http.get(`${baseUrl}/current-user`);
