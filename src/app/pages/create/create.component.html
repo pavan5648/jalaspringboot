@@ -16,22 +16,22 @@
         <div class="form-row mt40">
             <div class="form-group col-md-4 bold">
                 <label for="firstName" >Frist Name</label>
-                <input type="text" class="form-control" id="firstName" name="firstName"  placeholder="First Name" [(ngModel)]="employee.firstName">
+                <input type="text" class="form-control" id="firstName" name="firstName"  placeholder="First Name" [(ngModel)]="employee.firstName" required >
             </div>
             <div class="form-group col-md-4 bold">
                 <label for="lastName">Last Name</label>
-                <input type="text" class="form-control" id="lastName" name="lastName" placeholder="Last Name" [(ngModel)]="employee.lastName " >
+                <input type="text" class="form-control" id="lastName" name="lastName" required placeholder="Last Name" [(ngModel)]="employee.lastName " >
             </div>
             <div class="form-group col-md-4 bold">
                 <label for="inputEmail4 bold">Email</label>
-                <input type="email" class="form-control" id="inputEmail4" name="email" placeholder="Email" [(ngModel)]="employee.email" >
+                <input type="email" class="form-control" id="inputEmail4" name="email" required placeholder="Email" [(ngModel)]="employee.email"  >
             </div>
         </div>
 
         <div class="form-row">
             <div class="form-group col-md-4 bold">
                 <label for="mobileNumber">Mobile Number</label>
-                <input type="number" class="form-control" id="mobileNumber" name="mobile" placeholder="Mobile Number" [(ngModel)]="employee.mobile ">
+                <input type="text" class="form-control" id="mobileNumber" name="mobile" placeholder="Mobile Number" [(ngModel)]="employee.mobile" required >
             </div>
             <div class="form-group col-md-4">
                 <label for="dob">Date of Birth</label>
@@ -61,7 +61,7 @@
         <div class="form-row">
             <div class="form-group col-md-3">
                 <label for="inputState">State</label>
-                <select id="inputState countrySelect" class="form-control" onchange="makeSubmenu(this.value)" name="country" [(ngModel)]="employee.country">
+                <select id="inputState countrySelect" class="form-control" onchange="makeSubmenu(this.value)" name="country" [(ngModel)]="employee.country" required >
                 <!-- <select id="inputState countrySelect" class="form-control" onchange="makeSubmenu()" name="country"> -->
                     <option selected>Choose...</option>
                     <option> Bangladesh</option>
@@ -132,7 +132,7 @@
         <div style="margin: 10px;" class="row justify-content-end">
 
             <button type="submit" class="btn btn-success mr10">Save</button>
-            <button type="button" class="btn btn-danger ml10">Cancel</button>
+            <button type="button" class="btn btn-danger ml10" routerLink="/dashboard/search">Cancel</button>
         </div>
 
     </form>

@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { single } from 'rxjs';
 import baseUrl from './helper';
 
 @Injectable({
@@ -19,5 +20,17 @@ export class SearchService {
     return this._http.get(`${baseUrl}/emp`);
   }
 
+  // for single employee
+  public sindleEmployee(eId: any){
+    return this._http.get(`${baseUrl}/emp/${eId}`);
+  }
+
+  public deleteEmployee(eId: any){
+    return this._http.delete(`${baseUrl}/emp/${eId}`)
+  }
+
+  public updateEmployee(employee: any){
+    return this._http.put(`${baseUrl}/emp`, employee)
+  }
 
 }

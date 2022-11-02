@@ -36,7 +36,7 @@ const routes: Routes = [
         component:SearchComponent
       },
       {
-        path:'update',
+        path:'update/:eId',
         component:UpdateComponent
       }
 

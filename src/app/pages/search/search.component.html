@@ -11,18 +11,18 @@
                 </div>
             </div>
             <mat-divider></mat-divider>
-            <form>
+            <form (submit)="searchEmployee()" >
                 <div class="row">
                     <div class="form-group col-md-4">
                         <label for="firstName">Name</label>
-                        <input type="text" class="form-control pd-3" id="firstName" name="Name" placeholder="Name">
+                        <input type="text" class="form-control pd-3" id="firstName" name="firstName" placeholder="Name" [(ngModel)]="searchData.firstName" >
                     </div>
                     <div class="form-group col-md-4 ">
                         <label for="mobileNumber">Mobile No</label>
-                        <input type="number" class="form-control pd-3" id="mobileNumber" name="mobileNo"
-                            placeholder=" Number">
+                        <input type="number" class="form-control pd-3" id="mobileNumber" name="mobile"
+                            placeholder=" Number" [(ngModel)]="searchData.mobile">
                     </div>
-                    <button type="button" class="btn btn-success fs-12 mt26 mb26 mr10">Search</button>
+                    <button type="submit" class="btn btn-success fs-12 mt26 mb26 mr10">Search</button>
                     <button type="reset" class="btn btn-danger fs-12 mt26 mb26">Clear</button>
                 </div>
             </form>
@@ -30,10 +30,10 @@
     </div>
 
     <table class="table table-striped">
-        <thead>
+        <thead class="text-center">
             <tr>
                 <th scope="col">First Name</th>
-                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
                 <th scope="col">Mobile No.</th>
                 <th scope="col">Email id</th>
                 <th scope="col">Gender</th>
@@ -51,24 +51,25 @@
 	aws,devOps, fullStackDeveloper, middleware, webServices, qaAutomation; -->
 
             <tbody>
-                <tr>
+                <tr *ngFor="let e of employees" class="text-center">
                     <!-- <td scope="col"> {{e.firstName}} </td> -->
-                    <td scope="col"> </td>
-                    <td scope="col"></td>
-                    <td scope="col">Email id</td>
-                    <td scope="col">Gender</td>
-                    <td scope="col">Birth Date</td>
-                    <td scope="col">Country</td>
-                    <td scope="col">City</td>
+                    <td scope="col">{{ e.firstName }} </td>
+                    <td scope="col"> {{ e.lastName }} </td>
+                    <td scope="col"> {{ e.mobile }} </td>
+                    <td scope="col"> {{ e.email }} </td>
+                    <td scope="col"> {{ e.gender }} </td>
+                    <td scope="col"> {{e.dateOfBirth }} </td>
+                    <td scope="col">{{e.country}}</td>
+                    <td scope="col">{{e.city}}</td>
                     <td scope="col">
                         <div>
-                            <button type="button" class="btn btn-success fs-12 mr5 ">Edit</button>
-                            <button type="button" class="btn btn-danger fs-12 mr5 ">Delete</button>
+                            <button type="button" class="btn btn-success fs-12 mr5 "  [routerLink]="'/dashboard/update/'+e.id" >Edit</button>
+                            <button type="button" class="btn btn-danger fs-12 mr5 " (click)="deleteEmp(e.id)">Delete</button>
                         </div>
                     </td>
                 </tr>
 
-        <tr>
+        <!-- <tr>
             <td scope="col">First Name</td>
             <td scope="col">First Name</td>
             <td scope="col">Mobile No.</td>
@@ -95,7 +96,7 @@
                 <button type="button" class="btn btn-success fs-12">Edit</button>
                 <button type="button" class="btn btn-danger fs-12">Delete</button>
             </td>
-        </tr>
+        </tr> -->
 
         </tbody>
     </table>
