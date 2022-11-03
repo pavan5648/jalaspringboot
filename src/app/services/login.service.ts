@@ -12,6 +12,7 @@ export class LoginService {
   constructor(private http: HttpClient) {}
 
 
+  // add employee
   public addEmployee(employee:any){
     return this.http.post(`${baseUrl}/emp`,employee)
   }
@@ -21,7 +22,7 @@ export class LoginService {
     return this.http.get(`${baseUrl}/current-user`);
   }
 
-  //generate token
+  //generate jwt token
   public generateToken(loginData: any) {
     return this.http.post(`${baseUrl}/login`, loginData);
   }

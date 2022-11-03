@@ -13,6 +13,10 @@ import { LoginService } from './login.service';
 export class AuthInterceptor implements HttpInterceptor {
   constructor(private login: LoginService) {}
 
+  // intercepter for intercept the Request and attach the header with request
+
+
+  // intercepting the request
   intercept(
     req: HttpRequest<any>,
     next: HttpHandler
@@ -27,6 +31,7 @@ export class AuthInterceptor implements HttpInterceptor {
         setHeaders: { Authorization: `Bearer ${token}` },
       });
     }
+    // returning the request
     return next.handle(authReq);
   }
 }

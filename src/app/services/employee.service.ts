@@ -11,6 +11,7 @@ export class EmployeeService {
   constructor( private http: HttpClient) { }
 
 
+  // add Employee method 
   public addEmployee(employee:any){
     return this.http.post(`${baseUrl}/emp`,employee)
   }

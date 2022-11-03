@@ -8,89 +8,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
   <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+  <!-- linkikng fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- linking bootstrap -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
-
 <body class="mat-typography">
 
-  <!-- <div class="bootstrap-wrapper">
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-
-
-        <div class="login-logo">
-          <h1 class="mt20 heading">JALA Academy</h1>
-          <h2 class="f14"> Login Credentials</h2>
-          <h5 class="f14"> Email : training@jalaacademy.com </h5>
-          <h5 class="f14"> Password : jobprogram </h5>
-          <h5 style="background-color:Yellow;"><b> Learn Everything on Real-Time Scenarios </b></h5>
-        </div>
-
-
-
-        <mat-card>
-          <div class="container text-center">
-          </div> -->
-
-
-
-  <!-- <form> -->
-  <!-- username field -->
-  <!-- <mat-form-field class="full-width" appearance="outline">
-              <mat-label>User Name</mat-label>
-              <input name="username" required matInput placeholder="Enter here" />
-              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
-              <mat-hint>Valid User Name</mat-hint>
-            </mat-form-field> -->
-
-  <!-- password field  -->
-  <!-- <mat-form-field class="full-width" appearance="outline">
-              <mat-label>User Password</mat-label>
-              <input name="password" type="password" required matInput placeholder="Enter here" />
-              <mat-icon matSuffix>6</mat-icon>
-            </mat-form-field> -->
-
-
-
-  <!-- submit button -->
-
-  <!-- <div class="container text-center">
-              <button mat-raised-button color="primary" type="submit">
-                Login
-              </button>s
-            </div>
-          </form>
-        </mat-card>
-      </div>
-    </div>
-  </div>
-</div> -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  <!-- app root => here all conponant displays  -->
   <app-root></app-root>
 
-
   <script type="text/javascript">
+    // array of countries and their cities
     var citiesByCountry = {
       Bangladesh: ["Bogra",
         "Brahmanbaria",
@@ -186,9 +118,9 @@
 
     }
 
+    // creating sub menu based on country selection
     function makeSubmenu(value) {
       // function makeSubmenu() {
-      // let value = document.getElementById("citySelect").Bangladesh
       if (value.length == 0) document.getElementById("citySelect").innerHTML = "<option></option>";
       else {
         var citiesOptions = "";
@@ -198,18 +130,24 @@
         document.getElementById("citySelect").innerHTML = citiesOptions;
       }
     }
+
+// displaying values 
     function displaySelected() {
       var country = document.getElementById("countrySelect").value;
       var city = document.getElementById("citySelect").value;
       alert(country + "\n" + city);
     }
+
+    // reseting selected values
     function resetSelection() {
       document.getElementById("countrySelect").selectedIndex = 0;
       document.getElementById("citySelect").selectedIndex = 0;
     }
 
+    // changing vaalue of citybased on other city 
     function changeValue1(inp) {
       let data1 = document.getElementById('otherCity').value;
+      // changing nonSelected to selected
       if (data1 == "nonSelected") {
         document.getElementById("otherCity").value = "selected";
         document.getElementById('citySelect').disabled = true;
@@ -217,6 +155,7 @@
         document.getElementById('otherCityContainer').hidden = false;
         console.log("changed nonSelected to selected");
       }
+      // changing selected to non selected
       if (data1 == "selected") {
         document.getElementById("otherCity").value = "nonSelected";
         document.getElementById('citySelect').disabled = false;
@@ -227,6 +166,7 @@
       // alert("clicked")
     }
 
+    // updating city name of other city to city
     function updateData() {
       let otherCity = document.getElementById('OtherCityName').value;
       console.log(otherCity);
@@ -243,6 +183,7 @@
     }
 
 
+    // updating country
     function updateCountry() {
       let country = document.getElementsByName('country');
       console.log(country.value)
@@ -253,13 +194,10 @@
 
 
 
+    // changing skills value
     function changeValue(inp) {
-
       console.log(inp);
-
-
       let data1 = document.getElementById(inp).value;
-
       if (data1 == "nonSelected") {
         document.getElementById(inp).value = "selected";
         console.log("changed nonSelected to selected");
@@ -279,12 +217,15 @@
   </script>
 
 
+  <!-- linking jquery and bootstrap -->
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
     crossorigin="anonymous"></script>
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>

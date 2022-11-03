@@ -42,6 +42,8 @@ import {MatTreeModule} from '@angular/material/tree';
     SearchComponent,
     HomeComponent
   ],
+
+  // importing modules 
   imports: [
     BrowserModule,
     HttpClientModule,

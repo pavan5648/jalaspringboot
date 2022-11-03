@@ -12,6 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class CreateComponent implements OnInit {
 
+  // initializing constructor
   constructor(
     private employeeServie: EmployeeService,
     private snack: MatSnackBar,
@@ -43,44 +44,41 @@ export class CreateComponent implements OnInit {
 
   // create employee method => called after click on save 
   createEmployee() {
-
-
+    // validating firstname is not null
     if (this.employee.firstName == '' || this.employee.firstName == null) {
-      // alert('User is required !!');
       this.snack.open('First Name is required !! ', '', {
         duration: 3000,
       });
       return;
     }
-
+    // validating lastname is not null
     if (this.employee.lastName == '' || this.employee.lastName == null) {
-      // alert('User is required !!');
       this.snack.open('Last Name is required !! ', '', {
         duration: 3000,
       });
       return;
     }
+    // validating email is not null
     if (this.employee.email == '' || this.employee.email == null) {
-      // alert('User is required !!');
       this.snack.open('Email is required !! ', '', {
         duration: 3000,
       });
       return;
     }
+    // validating mobile is not null
     if (this.employee.mobile == '' || this.employee.mobile == null) {
-      // alert('User is required !!');
       this.snack.open('Mobile is required !! ', '', {
         duration: 3000,
       });
       return;
     }
 
-    // alert('submit')
-    console.log(this.employee);
-    // posting data to server 
+    // console.log(this.employee);
+    // sending data to server 
+
     this.employeeServie.addEmployee(this.employee).subscribe(
       (data) => {
-        //success
+        // success
         console.log(data)
         Swal.fire('Success', 'employee added', 'success');
         this.router.navigate(['dashboard/search']);

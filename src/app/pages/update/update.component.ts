@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { observable } from 'rxjs';
 import { SearchService } from 'src/app/services/search.service';
 import Swal from 'sweetalert2';
 
@@ -16,9 +17,11 @@ export class UpdateComponent implements OnInit {
     private _search: SearchService
   ) { }
 
+  // variable for store id
   eId = undefined;
 
   emp: any;
+
   // creating object of employee
   public employee = {
     firstName: '',
@@ -39,9 +42,10 @@ export class UpdateComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // extracting id from url path
     this.eId = this._route.snapshot.params['eId'];
-    // alert(this.eId)
 
+    // retriving single employee on initializing 
     this._search.sindleEmployee(this.eId).subscribe(
       (data: any) => {
         this.emp = data;
@@ -54,14 +58,16 @@ export class UpdateComponent implements OnInit {
 
   }
 
+  // update data method
   public updateData() {
-    // alert("test")
     this._search.updateEmployee(this.emp).subscribe(
       (data) => {
+        // success observable
         Swal.fire('Success', 'Data Updated !', 'success');
         this.router.navigate(['dashboard/search']);
       },
       (error) => {
+        // error observable
         console.log(error)
       }
     )
