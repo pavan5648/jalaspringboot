@@ -26,6 +26,7 @@ export class SearchService {
     return this._http.get(`${baseUrl}/emp/${eId}`);
   }
 
+
   // delete employee
   public deleteEmployee(eId: any){
     return this._http.delete(`${baseUrl}/emp/${eId}`)
@@ -35,5 +36,5 @@ export class SearchService {
   public updateEmployee(employee: any){
     return this._http.put(`${baseUrl}/emp`, employee)
   }
-
+ 
 }

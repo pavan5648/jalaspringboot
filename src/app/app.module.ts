@@ -27,6 +27,7 @@ import { HomeComponent } from './pages/home/home.component';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
 import {MatTreeModule} from '@angular/material/tree';
+import { NgxUiLoaderHttpModule, NgxUiLoaderModule } from 'ngx-ui-loader';
 
 
 
@@ -60,7 +61,13 @@ import {MatTreeModule} from '@angular/material/tree';
     MatIconModule,
     MatListModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    NgxUiLoaderModule,
+    NgxUiLoaderHttpModule.forRoot({
+      showForeground: true,
+    }),
+    
+
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
